@@ -1,0 +1,2 @@
+Screen,Description,WebElementType,IdentifyBy,Identifier,Comment
+Main,table,table,id,tableID,Table with ID(tableID) locate in Main Screen

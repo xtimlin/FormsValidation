@@ -1,0 +1,6 @@
+#Environment: 'http://127.0.0.1:5500/html/index.html'
+Environment: 'localURL'
+Labels: '^lbl_val_.+$'
+Values: '^txt_val_.+$'
+TotalLabel: '^lbl_ttl_val$'
+TotalValue: '^txt_ttl_val$'
