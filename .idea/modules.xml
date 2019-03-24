@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/FormsValidation.iml" filepath="$PROJECT_DIR$/FormsValidation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/formsValidation.iml" filepath="$PROJECT_DIR$/formsValidation.iml" />
     </modules>
   </component>
 </project>
