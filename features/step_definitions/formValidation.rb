@@ -51,5 +51,5 @@ end
 
 Then(/Open Report/) do
   puts "Open Validation Report"
-  system("start /wait excel #{@reportPath}")
+  system("start excel #{@reportPath}")
 end
