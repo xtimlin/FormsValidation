@@ -152,7 +152,7 @@ module Methods
       status = true
       message = "Both #{labelID} and #{valueID} are exist in webPage"
     end
-    data = [count, labelID, label, valueID, value.to_s.gsub(',', ''), status, message]
+    data = [count, labelID, label, valueID, formatValueforOutput(value), status, message]
     reportData << data
     reportData
   end
@@ -167,16 +167,25 @@ module Methods
       message = 'Validate Currency Format'
       accumulateSum += value.to_s.gsub('$', '').gsub(',', '').to_f
       if value.to_s.gsub('$', '').gsub(',', '').to_f <= 0
-        zeroValue = [count, labelID, label, valueID, value.to_s.gsub(',', ''), false, 'value is less than or equal to zero']
+        zeroValue = [count, labelID, label, valueID, formatValueforOutput(value), false, 'value is less than or equal to zero']
         reportData << zeroValue
       end
     else
       status = false
       message = 'Invalidate Currency Format'
     end
-    data = [count, labelID, label, valueID, value.to_s.gsub(',', ''), status, message]
+    data = [count, labelID, label, valueID, formatValueforOutput(value), status, message]
     reportData << data
     [reportData, accumulateSum]
+  end
+
+
+  ###########################################################################################
+  # Author: Tim
+  # Format value for display in csv file
+  ###########################################################################################
+  def formatValueforOutput(value)
+    "'#{value.to_s.gsub(',', '')}'"
   end
 
   ###########################################################################################
@@ -196,7 +205,7 @@ module Methods
       status = false
       message = "Total Balance NOT Matches - Actual Accumulated Sum(#{accumulateSum}) VS Total Sum on Screen(#{totalValue.gsub(',', '')})"
     end
-    data = ['Sum Value', totalLabelID, totalLabel, totalValueID, totalValue.gsub(',', ''), status, message]
+    data = ['Sum Value', totalLabelID, totalLabel, totalValueID, formatValueforOutput(totalValue), status, message]
     reportData << data
     reportData
   end
