@@ -1,13 +1,20 @@
 class PageObject
   include Methods
 
-
+  ###########################################################################################
+  # Author: Tim
+  # Initialize Page Screen Object Configuration
+  ###########################################################################################
   def initialize
     csvFile = "#{$ROOT}/config/pageObject.csv"
     @csvData = readCSV(csvFile)
     @PageObject = {}
   end
 
+  ###########################################################################################
+  # Author: Tim
+  # Generate Watir Screen Object Based on CSV file Configuration
+  ###########################################################################################
   def loadObject(browser)
     pageObject = "#{$ROOT}/config/pageObject.csv"
     pageObjectConfig = readCSV(pageObject)

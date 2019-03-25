@@ -22,6 +22,10 @@ module Methods
     browser
   end
 
+  ###########################################################################################
+  # Author: Tim
+  # Checking URL see if it is pointing to local HTML file
+  ###########################################################################################
   def checkURL(url)
     url = "#{$ROOT}/html/index.html" if url.match?(/^localURL$/)
     url
@@ -40,8 +44,6 @@ module Methods
   # Capture Table data
   ###########################################################################################
   def captureTable(name)
-    # tableObj = browser.table(id: tableID)
-    # tableObj = tableObj.to_a
     tableObj = @PageObject[name].to_a
     getTableHelper(tableObj)
   end
@@ -55,7 +57,6 @@ module Methods
     reportData = genReport(tableData)
     reportData
   end
-
 
   ###########################################################################################
   # Author: Tim
@@ -75,7 +76,6 @@ module Methods
   def writeDataToReport(path, validateData)
     file = File.open(path, 'w')
     validateData.each do |row|
-      # row.map {|item| item.to_s.gsub(',', '')}
       file.puts row.join(',')
     end
     file.close
@@ -87,7 +87,6 @@ module Methods
   ###########################################################################################
   def generatedReportFolder
     currentData, currentTime = DateTime.now.strftime("%Y_%m_%d %H_%M").split(' ')
-
     path = "#{$ROOT}/output"
     creatFolder(path)
     path += "/#{currentData}"
@@ -97,6 +96,10 @@ module Methods
     path
   end
 
+  ###########################################################################################
+  # Author: Tim
+  # Create folder if folder not exist
+  ###########################################################################################
   def creatFolder(path)
     Dir.mkdir(path) unless File.exists?(path)
   end
