@@ -168,7 +168,7 @@ module Methods
       accumulateSum += value.to_s.gsub('$', '').gsub(',', '').to_f
       if value.to_s.gsub('$', '').gsub(',', '').to_f <= 0
         zeroValue = [count, labelID, label, valueID, value.to_s.gsub(',', ''), false, 'value is less than or equal to zero']
-        data << zeroValue
+        reportData << zeroValue
       end
     else
       status = false
